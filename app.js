@@ -22,10 +22,7 @@ function init(){
     previousRoll = [0,0];
     document.getElementById("winning-score").value = 100;
     //Set all elements to 0 value
-    document.getElementById('score-0').textContent = 0;
-    document.getElementById('score-1').textContent = 0;
-    document.getElementById('current-0').textContent = 0;
-    document.getElementById('current-1').textContent = 0;
+    document.querySelectorAll('#score-0, #score-1, #current-0, #current-1').forEach(element => { element.textContent = 0;});
     
     //Hide dices and notifications
     hideDices();
@@ -58,6 +55,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         scores[activePlayer] = 0;
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
         document.querySelector('.rolled-two-six-' + activePlayer).style.visibility = 'visible';
+        //Reset the 'previousRoll' value before switching users
+        previousRoll = -1;
         nextPlayer();
     } else if ((dices[0] !== 1) && (dices[1] !== 1)) {
     //3. Update the roundScore IF the rolled number was NOT a 1
@@ -67,6 +66,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         document.querySelector('#current-' + activePlayer).textContent = roundScore;  
     } else {
         document.querySelector('.rolled-one-' + activePlayer).style.visibility = 'visible';
+        previousRoll = -1;
         nextPlayer();
     }
     previousRoll = [dices[0], dices[1]];
