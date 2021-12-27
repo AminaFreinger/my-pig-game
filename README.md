@@ -1,7 +1,7 @@
 # PIG GAME
 My first JavaScript project
 # Live Demo
-https://htmlpreview.github.io/?https://github.com/AminaFreinger/my-pig-game/blob/master/index.html
+https://funny-pig-game.netlify.app/
 # Game Rules
 - The game has 2 players, playing in rounds
 - In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score
